@@ -1,0 +1,8 @@
+1290,Guru reddy,Architect,19.0,45
+1234,Ravi kiran Gunnabattula,Devops Engineer,2.0,23
+1207,Niharika devi Sidagam,UI,2.0,23
+1296,Rama Krishna Kadali,Senior Software Engineer,2.0,35
+1301,Sindhura Nunna,Developement,1.0,25
+1302,Sai Polavarapu,Tester,1.0,26
+1311,Tanya Baid,HR,2.0,25
+1296,Ramesh ponnada,Senior SOftware Manager,22.0,43

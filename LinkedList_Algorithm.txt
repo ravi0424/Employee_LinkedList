@@ -1,0 +1,124 @@
+Linked List Algorithm
+
+Data Structure
+ A singly linked list with head and tail pointers
+ Each node contains an integer value and a next pointer
+ Size tracking for the list
+
+Add Operations
+
+Insertion Operations
+1. Insert at Beginning 
+   function insertFirst(value):
+     Create new node with given value
+     Set new node's next pointer to current head
+     Update head to point to new node
+     If tail is null (empty list), update tail to point to head
+     Increment size
+
+2. Insert at End 
+   function insertLast(value):
+     If list is empty, call insertFirst(value) and return
+     Create new node with given value
+     Set current tail's next pointer to new node
+     Update tail to point to new node
+     Increment size
+
+3. Insert at Position 
+   function insertAtPos(value, index):
+     If index is out of bounds (index > size), display error and return
+     If index is 0, call insertFirst(value) and return
+     If index equals size, call insertLast(value) and return
+     
+     To create node and store previous node of the given index getIndex(index-1) 
+     The new node is initialized with the given value and its next pointer set to the next of the previous node
+     Link the Previous Node to the New Node
+     Increment size
+
+Deletion Operations
+1. Delete First Element 
+   function deleteFirst():
+     If list is empty, return 0
+     Store value of head node
+     Update head to point to next node
+     If head becomes null, update tail to null as well
+     Decrement size
+     Return stored value
+
+2. Delete Last Element 
+   function deleteLast():
+     If list is empty, return 0
+     If size is 1, call deleteFirst() and return result
+     
+     Use getIndex(size-2) to directly get the second last node
+     Store value of tail node
+     Update tail to point to second last node
+     Set tail's next to null
+     Decrement size
+     Return stored value
+
+3. Delete at Position 
+   function delete(index):
+     If list is empty, return 0
+     If index is 0, call deleteFirst() and return result
+     If index is size-1, call deleteLast() and return result
+     
+     Find node at (index-1) using getIndex
+     Store value of node to be deleted
+     Update previous node's next to skip the node to be deleted
+     Decrement size
+     Return stored value
+4. Delete by Value 
+   function remove(value):
+    Check if the list is empty:
+     If yes, return -1.
+
+    Check if the head node contains the target value:
+     Store the head's value.
+     Move the head to the next node.
+     Return the stored value.
+
+    Initialize a temporary pointer temp to the head.
+
+    Traverse the list while temp.next is not null:
+      If temp.next.value equals the target value:
+        Store the value of temp.next.
+        Update temp.next to temp.next.next (skipping the node).
+        Decrement the size.
+        If temp.next is now null, update the tail to temp.
+        Return the stored value.
+
+    If the value is not found in the list, return -1
+     
+
+Additional Operations
+1. Find Element by Value 
+   function find(value):
+     If list is empty, return null
+     Traverse the list from head
+     For each node, compare its value with given value
+     If match found, return the node
+     If reached end without match, return null
+
+2. Get Node at Index 
+   function getIndex(index):
+     If list is empty or index is out of bounds, return null
+     Traverse the list from head to the index position
+     Return the node at the index
+     This method is particularly useful for getting the second-last node during deletion of the last element and insertion of element at specific index, avoiding the need to traverse from head each time
+
+3. Display List 
+   function display():
+     Traverse from head to end
+     Print each node's value followed by an arrow
+     Print "END" at the end
+
+User Interface Algorithm
+1. Display a menu with options for all linked list operations
+2. Read user choice
+3. Based on choice:
+   - For insertion: Read value (and position if needed) and call appropriate insert method
+   - For deletion: Read position or value and call appropriate delete method
+   - For search: Read value and call find method
+   - For display: Call display method
+4. Repeat until user chooses to exit
